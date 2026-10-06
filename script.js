@@ -19,7 +19,7 @@ document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && menu.classList.contains('mobile-open')) { closeMenu(); toggle.focus(); }
 });
 window.matchMedia('(min-width: 851px)').addEventListener('change', closeMenu);
-const revealTargets = document.querySelectorAll('.section-heading, .solution-card, .feature-copy, .contact-intro, .contact-form');
+const revealTargets = document.querySelectorAll('.section-heading, .solution-card, .feature-copy, .contact-intro, .contact-form, .rv');
 if ('IntersectionObserver' in window && !motion.matches) {
   const observer = new IntersectionObserver(entries => entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -43,7 +43,7 @@ function showSlide(index) {
     slide.inert = i !== index;
     tabs[i].setAttribute('aria-pressed', String(i === index));
   });
-  document.querySelector('#slide-count').textContent = `0${index + 1} / 03`;
+  document.querySelector('#slide-count').textContent = `${String(index + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
   if (!motion.matches) {
     const slide = slides[index];
     slide.classList.remove('animate'); void slide.offsetWidth; slide.classList.add('animate');
@@ -358,6 +358,7 @@ if (phone) phone.addEventListener('input', () => {
     pulses = pulses.filter(p => {
       p.t += p.s;
       const a = pos[p.a], b = pos[p.b];
+      if (!a || !b) return false;
       if (p.t >= 1 || Math.hypot(a.x - b.x, a.y - b.y) > linkDist * 1.2) return false;
       const x = a.x + (b.x - a.x) * p.t, y = a.y + (b.y - a.y) * p.t;
       const g = ctx.createRadialGradient(x, y, 0, x, y, 8);
