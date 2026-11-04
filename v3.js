@@ -57,3 +57,35 @@
     update();
   }
 })();
+
+// ===== Chatbot: conversa animada no celular =====
+(function () {
+  const chat = document.querySelector('.phone-chat');
+  if (!chat) return;
+  const items = [...chat.children];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { items.forEach(el => { if (!el.classList.contains('typing')) el.classList.add('shown'); }); return; }
+  let timers = [], running = false;
+  function play() {
+    timers.forEach(clearTimeout); timers = [];
+    items.forEach(el => el.classList.remove('shown'));
+    let t = 400;
+    items.forEach((el, i) => {
+      if (el.classList.contains('typing')) {
+        timers.push(setTimeout(() => el.classList.add('shown'), t));
+        t += 1300;
+        timers.push(setTimeout(() => el.classList.remove('shown'), t));
+      } else {
+        timers.push(setTimeout(() => el.classList.add('shown'), t));
+        t += 1500;
+      }
+    });
+    timers.push(setTimeout(() => { if (running) play(); }, t + 3500));
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !running) { running = true; play(); }
+      else if (!e.isIntersecting && running) { running = false; timers.forEach(clearTimeout); }
+    }, {threshold: .3}).observe(chat);
+  } else { running = true; play(); }
+})();

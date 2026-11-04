@@ -213,3 +213,41 @@
 .da-dots circle:nth-child(odd){animation-delay:.6s}
 @keyframes fade-blink{50%{opacity:.45}}
 @media(prefers-reduced-motion:reduce){.domain-art *{animation:none!important}}
+
+/* ===== v3.2: chatbots no WhatsApp ===== */
+.chatbot{display:grid;grid-template-columns:1.05fr .95fr;gap:6vw;align-items:center}
+.wa-tag svg{width:20px;height:20px}
+.chat-copy>p:not(.kicker){color:var(--muted);font-size:14px;line-height:1.9;margin:22px 0;max-width:500px}
+.chat-features{list-style:none;padding:0;margin:0 0 30px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chat-features li{display:flex;gap:12px;padding:16px;border:1px solid var(--line);border-radius:10px;background:rgba(10,14,14,.75);transition:border-color .3s}
+.chat-features li:hover{border-color:#39645b}
+.chat-features i{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:9px;background:#0f2523;border:1px solid #2d6a63;color:var(--cyan);font-style:normal;font-size:11px;font-weight:800;font-family:Orbitron,Manrope,sans-serif}
+.chat-features b{display:block;font-size:13px;margin-bottom:4px}
+.chat-features span{font-size:12px;line-height:1.6;color:var(--muted)}
+.phone-wrap{position:relative;display:flex;justify-content:center}
+.phone{width:min(330px,100%);border-radius:34px;padding:12px;background:#0a1111;border:1px solid #2d4f4b;box-shadow:0 30px 70px #000,0 0 60px #2ed7d114;position:relative}
+.phone::before{content:"";position:absolute;top:10px;left:50%;width:90px;height:18px;margin-left:-45px;border-radius:0 0 12px 12px;background:#0a1111;z-index:2}
+.phone-head{display:flex;align-items:center;gap:10px;padding:22px 14px 12px;background:#0d2321;border-radius:24px 24px 0 0}
+.ph-avatar{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--cyan);color:#021918;font-size:10px;font-weight:800}
+.phone-head b{font-size:13px;display:block}.phone-head small{font-size:10px;color:#8fd4c9}
+.phone-chat{height:390px;padding:14px 12px;display:flex;flex-direction:column;gap:8px;overflow:hidden;background:radial-gradient(circle at 20% 10%,#0e1d1c,#060b0b 70%),repeating-linear-gradient(45deg,#ffffff03 0 2px,transparent 2px 12px)}
+.bubble{max-width:84%;padding:9px 11px 18px;border-radius:12px;font-size:11.5px;line-height:1.5;position:relative;opacity:0;transform:translateY(10px) scale(.97)}
+.bubble small{position:absolute;right:9px;bottom:4px;font-size:8.5px;opacity:.65}
+.bubble.in{align-self:flex-start;background:#1a2626;color:#e3eeec;border-top-left-radius:3px}
+.bubble.out{align-self:flex-end;background:#0f5a54;color:#eafffd;border-top-right-radius:3px}
+.bubble.out b{display:inline-grid;place-items:center;width:15px;height:15px;margin:3px 5px 0 0;border-radius:4px;background:#2ed7d1;color:#021918;font-size:9px}
+.typing{align-self:flex-end;display:none;gap:4px;padding:10px 12px;border-radius:12px;background:#0f5a54}
+.typing i{width:6px;height:6px;border-radius:50%;background:#bff;animation:typing 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes typing{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
+.phone-chat .shown{opacity:1;transform:none;transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.phone-chat .typing.shown{display:flex}
+.phone-input{display:flex;align-items:center;gap:10px;margin-top:8px;padding:10px 12px;border-radius:20px;background:#121b1b;font-size:11px;color:#6f8582}
+.phone-input span{flex:1}.phone-input i{width:28px;height:28px;border-radius:50%;background:var(--cyan)}
+.chat-badge{top:18%;right:2%;flex-direction:column;align-items:flex-start;gap:2px;animation-delay:-2s}
+.chat-badge strong{font-family:Orbitron,Manrope,sans-serif;font-size:18px;color:var(--cyan)}
+.chat-badge small{margin:0;color:var(--muted);letter-spacing:.04em}
+@media(max-width:1100px){.chat-features{grid-template-columns:1fr}}
+@media(max-width:850px){.chatbot{grid-template-columns:1fr;gap:40px}.chat-badge{right:0}}
+@media(max-width:560px){.chat-badge{display:none}.phone-chat{height:360px}}
+@media(prefers-reduced-motion:reduce){.bubble{opacity:1;transform:none}.typing{display:none!important}}
