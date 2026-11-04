@@ -259,3 +259,8 @@
 .pillar-link b{display:inline-block;transition:transform .3s var(--ease)}.pillar-link:hover b{transform:translateY(3px)}
 @media(max-width:1100px){.pillars{grid-template-columns:1fr 1fr}}
 @media(max-width:850px){.pillars{grid-template-columns:1fr}}
+
+/* ===== v3.4: menu sem quebra de linha ===== */
+.main-nav a,.nav-cta{white-space:nowrap}
+@media(max-width:1240px) and (min-width:851px){.topbar{gap:16px}.main-nav{gap:6px}.main-nav a{padding:8px 10px;font-size:11px}.nav-cta{padding:12px 14px}}
+@media(max-width:1060px) and (min-width:851px){.topbar{padding-inline:20px}.logo-link img{width:80px;height:70px}.main-nav a{padding:7px 8px;font-size:10.5px}.nav-cta span{display:none}}
