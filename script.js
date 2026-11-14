@@ -344,14 +344,14 @@ if (phone) phone.addEventListener('input', () => {
         const b = pos[j], dx = a.x - b.x, dy = a.y - b.y, d = Math.sqrt(dx * dx + dy * dy);
         if (d < linkDist) {
           const alpha = (1 - d / linkDist) * .2 * Math.min(a.z, b.z) * 1.4;
-          ctx.strokeStyle = `rgba(46,215,209,${alpha})`; ctx.lineWidth = .7;
+          ctx.strokeStyle = `rgba(57,255,20,${alpha})`; ctx.lineWidth = .7;
           ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
           links.push([i, j]);
         }
       }
       const pd = Math.hypot(a.x - pointer.x, a.y - pointer.y);
-      if (pd < 180) { ctx.strokeStyle = `rgba(46,215,209,${(1 - pd / 180) * .5})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(pointer.x, pointer.y); ctx.stroke(); }
-      ctx.fillStyle = `rgba(46,215,209,${.35 + a.z * .55})`;
+      if (pd < 180) { ctx.strokeStyle = `rgba(57,255,20,${(1 - pd / 180) * .5})`; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(pointer.x, pointer.y); ctx.stroke(); }
+      ctx.fillStyle = `rgba(57,255,20,${.35 + a.z * .55})`;
       ctx.beginPath(); ctx.arc(a.x, a.y, a.r * (.6 + a.z * .6), 0, 6.283); ctx.fill();
     }
     if (Math.random() < (small ? .03 : .06)) spawnPulse(links);
@@ -362,7 +362,7 @@ if (phone) phone.addEventListener('input', () => {
       if (p.t >= 1 || Math.hypot(a.x - b.x, a.y - b.y) > linkDist * 1.2) return false;
       const x = a.x + (b.x - a.x) * p.t, y = a.y + (b.y - a.y) * p.t;
       const g = ctx.createRadialGradient(x, y, 0, x, y, 8);
-      g.addColorStop(0, 'rgba(159,245,240,.95)'); g.addColorStop(1, 'rgba(46,215,209,0)');
+      g.addColorStop(0, 'rgba(172,245,159,.95)'); g.addColorStop(1, 'rgba(57,255,20,0)');
       ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, 8, 0, 6.283); ctx.fill();
       return true;
     });
