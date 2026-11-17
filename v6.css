@@ -1,0 +1,159 @@
+/* ===== v6 — tema claro: fundo off-white, texto preto, verde da marca em botões e destaques.
+   Painéis de "tela" (imagem do topo, fluxo, celular, dashboard, faixa de CTA e rodapé) continuam escuros. ===== */
+:root{
+  color-scheme:light;
+  --bg:#f8f8f5;--surface:#ffffff;--raised:#f1f2ee;
+  --line:#e3e5e0;--line-strong:#cdd1ca;
+  --text:#0d0f0e;--muted:#5a6159;
+  --accent:#1c9a10;--accent-deep:#157a0c;--accent-soft:rgba(28,154,16,.1);
+  --cyan:#0d0f0e;
+  --shadow:0 1px 2px rgba(16,24,16,.04),0 12px 32px rgba(16,24,16,.06);
+}
+/* escopo escuro para os painéis de tela */
+.hero-photo,.float-card,.flow-board,.phone,.dashboard-stage,.cta-band,footer{
+  color-scheme:dark;
+  --bg:#08090a;--surface:#0e0f11;--raised:#141518;
+  --line:rgba(255,255,255,.08);--line-strong:rgba(255,255,255,.15);
+  --text:#f4f5f6;--muted:#9a9fa8;
+  --accent:#3ddc28;--accent-deep:#2a8f1d;--accent-soft:rgba(61,220,40,.12);
+  --cyan:#f4f5f6;
+  color:var(--text);
+}
+html,body{background:var(--bg)}
+::selection{background:#0d0f0e;color:#fff}
+
+/* Cabeçalho */
+.topbar{background:rgba(248,248,245,.86)}
+.topbar.scrolled{background:rgba(248,248,245,.94);box-shadow:0 1px 0 var(--line)}
+.main-nav a:hover{background:rgba(13,15,14,.05)}
+.main-nav a.current{background:rgba(13,15,14,.07)}
+.nav-cta{background:var(--text);color:#fff}
+.nav-cta:hover{background:#2a2e2b}
+.menu-button{color:var(--text)}
+
+/* Títulos e botões */
+h1 strong,h2 strong{color:var(--accent)}
+.primary{background:var(--accent);color:#fff}
+.primary:hover{background:var(--accent-deep);box-shadow:0 8px 20px rgba(28,154,16,.22)}
+.ghost{background:var(--surface)}
+.ghost:hover{border-color:var(--text);background:var(--surface)}
+.cta-band .ghost{background:transparent}
+.cta-band .ghost:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.05)}
+.hero-note strong{color:var(--text)}
+
+/* Hero */
+.hero-photo{box-shadow:0 30px 60px rgba(16,24,16,.22);border-color:#1c1f1c}
+.hero-photo img{opacity:1;filter:saturate(.85)}
+.float-card,.flow-board{box-shadow:0 20px 50px rgba(8,12,8,.35)}
+
+/* Pilares, cartões */
+.pillar,.solution-card,.domain,.bi-card,.chat-features li,.contact-form{box-shadow:var(--shadow)}
+.pillar:hover,.solution-card:hover,.solution-card:focus-within,.domain:hover,.chat-features li:hover{background:var(--surface);border-color:var(--line-strong)}
+.marquee-track i{color:#b4b9b0}
+.trust-strip{border-color:var(--line)}
+
+/* Automações */
+.ai-band{display:none}
+.orbit strong{color:var(--text)}
+.app-visual,.domain-art{background:var(--raised)}
+.app-visual img{filter:none}
+.v-doc::after{background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.25))}
+.v-doc .box{border-color:#fff;background:rgba(255,255,255,.14)}
+.gains{box-shadow:var(--shadow)}
+.gains li{color:#2c312d}
+
+/* Como funciona */
+.feature-grid{background-image:linear-gradient(rgba(13,15,14,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(13,15,14,.06) 1px,transparent 1px)}
+.feature-ring{border-color:var(--line-strong)}
+.feature-ring.inner::after{background:var(--accent)}
+.feature-visual:is(:hover,:focus-within) .feature-center{border-color:var(--text)}
+.signal:is(:hover,:focus-visible){background:var(--surface);border-color:var(--text)}
+.signal[aria-pressed="true"]{background:var(--text);border-color:var(--text);color:#fff}
+.flow-links line{stroke:#a3a89f}
+.feature-copy li{color:#2c312d}
+.feature-copy li strong,.feature-copy li:hover{color:var(--text)}
+.feature-copy li.flow-selected{background:linear-gradient(90deg,rgba(28,154,16,.08),transparent);color:var(--text)}
+
+/* Integrações */
+.net .node rect{stroke:var(--line-strong)}
+.net .node:hover rect{fill:var(--surface);stroke:var(--text)}
+.net .node text{fill:var(--text)}
+.net .links path{stroke:#0d0f0e;stroke-opacity:.28}
+.net .core circle:first-child{fill:#0d0f0e;stroke:#0d0f0e}
+.net .core .ring{stroke:#0d0f0e;stroke-opacity:.3}
+.net .core-t{fill:#fff}
+.net .core-s{fill:#b9beb6}
+.chips span{color:#2c312d}
+.chips span:hover{border-color:var(--text);color:var(--text)}
+
+/* Power BI */
+.dashboard-stage{box-shadow:0 30px 60px rgba(16,24,16,.22);border-color:#1c1f1c}
+.dashboard-controls button{color:var(--muted)}
+.dashboard-controls button:hover{background:rgba(13,15,14,.05);color:var(--text)}
+.dashboard-controls button[aria-pressed=true]{background:var(--surface);border-color:var(--line-strong);color:var(--text)}
+.steps-mini li{color:#2c312d}
+.photo::after{background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.25) 100%)}
+
+/* Contato */
+.contact-form label{color:var(--text)}
+input,textarea{background:#fff}
+input::placeholder,textarea::placeholder{color:#8b9189}
+input:hover,textarea:hover{border-color:#9aa097}
+input:focus,textarea:focus{border-color:var(--accent);outline:3px solid rgba(28,154,16,.15);background:#fff}
+.form-note{color:var(--muted)}
+.optional{color:var(--muted)}
+.direct-contact a:hover{color:var(--accent)}
+.form-status.error{color:#c0392b}
+
+/* Rodapé e flutuante */
+footer{background:#08090a;border-top:0}
+footer p{color:#d5d8dd}
+.whats-float{background:var(--accent);color:#fff;box-shadow:0 10px 26px rgba(16,24,16,.28)}
+.whats-float:hover{box-shadow:0 12px 30px rgba(16,24,16,.36)}
+
+@media(max-width:850px){.main-nav.mobile-open{background:var(--bg);box-shadow:0 20px 40px rgba(16,24,16,.12)}}
+
+/* ===== v6.1 — cabeçalho preto com menu em caixas; bordas mais marcadas no conteúdo ===== */
+.topbar{
+  color-scheme:dark;
+  --bg:#08090a;--surface:#0e0f11;--raised:#141518;
+  --line:rgba(255,255,255,.1);--line-strong:rgba(255,255,255,.2);
+  --text:#f4f5f6;--muted:#b4b9c0;--accent:#3ddc28;--cyan:#f4f5f6;
+  color:var(--text);height:76px;background:#08090a;border-bottom:1px solid #1d1f22;backdrop-filter:none;
+}
+.topbar.scrolled{height:66px;background:#08090a;box-shadow:0 8px 24px rgba(8,9,10,.25)}
+.topbar .logo-link img,.topbar.scrolled .logo-link img{height:24px}
+.main-nav{gap:8px}
+.main-nav a{padding:9px 14px;border:1px solid var(--line-strong);border-radius:8px;background:rgba(255,255,255,.03);color:var(--muted);font-weight:600}
+.main-nav a:hover{border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.07);color:#fff}
+.main-nav a.current{border:1px solid var(--accent);background:rgba(61,220,40,.1);color:#fff}
+.nav-cta{background:var(--accent);color:#061902;border:1px solid var(--accent);padding:11px 18px}
+.nav-cta:hover{background:#63e650;border-color:#63e650}
+.menu-button{color:#fff;border-color:rgba(255,255,255,.3)}
+@media(max-width:1240px) and (min-width:851px){.main-nav{gap:6px}.main-nav a{padding:8px 10px;font-size:12px}}
+@media(max-width:850px){
+  .topbar{height:66px}.topbar.scrolled{height:60px}
+  .main-nav.mobile-open{background:#08090a;border-bottom:1px solid #1d1f22;box-shadow:0 20px 40px rgba(8,9,10,.3);gap:8px;padding:16px 20px}
+}
+
+/* bordas visíveis nos blocos de conteúdo */
+:root{--line:#d3d7cd;--line-strong:#b3b9ac;--card-border:#c3c8bc}
+.pillar,.solution-card,.domain,.bi-card,.chat-features li,.contact-form,.gains,.ai-tag,.chips span,.signal,.feature-center{border-color:var(--card-border)}
+.pillar,.solution-card,.domain,.bi-card,.chat-features li,.contact-form{border-width:1.5px;box-shadow:0 1px 0 rgba(16,24,16,.04),0 10px 28px rgba(16,24,16,.07)}
+.pillar:hover,.solution-card:hover,.solution-card:focus-within,.domain:hover,.chat-features li:hover,.bi-card:hover{border-color:var(--text)}
+.gains{background:var(--card-border);border-width:1.5px}
+.app-visual,.domain-art{border-bottom:1.5px solid var(--card-border)}
+.chat-features i{border-color:var(--card-border)}
+.pillar i,.card-top i{display:inline-grid;place-items:center;width:44px;height:44px;border:1.5px solid var(--card-border);border-radius:10px;background:var(--raised);font-size:20px}
+.pillar-tag{border-color:rgba(28,154,16,.45)}
+.outcome{border-top:1px solid var(--line);margin-top:auto;padding-top:16px}
+.section-heading,.ai-heading{padding-bottom:36px;border-bottom:1.5px solid var(--line)}
+.feature{border-block:1.5px solid var(--line)}
+.trust-strip{border-block:1.5px solid var(--line);background:var(--surface)}
+.trust-strip::before{background:linear-gradient(90deg,var(--surface),transparent)}
+.trust-strip::after{background:linear-gradient(-90deg,var(--surface),transparent)}
+input,textarea{border-width:1.5px;border-color:var(--card-border)}
+.ghost{border-width:1.5px;border-color:var(--line-strong)}
+.dashboard-controls button{border:1.5px solid var(--card-border);background:var(--surface)}
+.dashboard-controls button[aria-pressed=true]{border-color:var(--text)}
+.steps-mini li,.feature-copy li{border-top-color:var(--line)}
